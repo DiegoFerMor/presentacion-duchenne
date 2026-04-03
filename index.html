@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State of the Art in Duchenne Muscular Dystrophy | Hygieia Hub</title>
+    
+    <!-- Fonts: Manrope (Display) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet">
+    
+    <!-- n8n Chat CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0f172a",    // Slate muy oscuro (Autoridad/Neurología)
+                        brandPrimary: "#0f172a",
+                        secondary: "#0d9488",  // Teal (Innovación/Salud)
+                        accent: "#2dd4bf",     // Cyan brillante (Energía/Dianas)
+                        surface: "#f1f5f9",    // Azul pastel claro intensificado (slate-100)
+                        "surface-low": "#e2e8f0", // Azul pastel medio para contrastes (slate-200)
+                        "surface-lowest": "#ffffff", // Blanco puro
+                        "on-surface": "#1e293b",
+                        outline: "#94a3b8",
+                    },
+                    fontFamily: {
+                        headline: ["Manrope", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    letterSpacing: {
+                        ultra: "-0.02em",
+                        stately: "0.2em",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        
+        .hero-gradient { 
+            background: linear-gradient(135deg, #0f172a 0%, #134e4a 100%); 
+        }
+        
+        .glass-nav { 
+            background: rgba(255, 255, 255, 0.90); 
+            backdrop-filter: blur(16px); 
+        }
+        
+        .reveal { transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); opacity: 0; transform: translateY(20px); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .accordion-content { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out;
+            opacity: 0;
+        }
+        .accordion-item.active .accordion-content { 
+            max-height: 1200px; 
+            opacity: 1;
+        }
+        .accordion-item.active .accordion-icon { transform: rotate(180deg); color: #0d9488; }
+        .accordion-item.active { border-color: #2dd4bf; }
+        
+        .text-balance { text-wrap: balance; }
+        ::selection { background-color: #2dd4bf; color: #0f172a; }
+
+        /* MAQUILLAJE CORPORATIVO PARA EL CHAT DE n8n */
+        :root {
+            --chat--color--primary: #001e40; /* Navy Authority */
+            --chat--color--primary-shade-50: #003366; 
+            --chat--color--primary--shade-100: #004080; 
+            --chat--color--secondary: #00668a; /* Action Blue */
+            --chat--color-secondary-shade-50: #0081ae; 
+            --chat--color-white: #ffffff;
+            --chat--color-light: #f7f9fb; 
+            --chat--color-dark: #191c1e; 
+            --chat--toggle--background: #001e40; /* Fondo de la burbuja */
+            --chat--toggle--color: #ffffff; /* Icono de la burbuja */
+        }
+        .chat-window {
+            box-shadow: 0 10px 25px rgba(0, 30, 64, 0.15) !important;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-accent selection:text-primary">
+
+    <!-- Header / Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-surface-low shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-6 h-24 md:h-28 flex justify-between items-center transition-all">
+            <!-- Brand: Solo Logo Duchenne a la izquierda -->
+            <div class="flex items-center">
+                <img src="./logos/logo_duchenne.png" alt="Duchenne Program" class="h-16 md:h-20 lg:h-24 w-auto object-contain" onerror="this.src='https://placehold.co/240x80/transparent/0f172a?text=DUCHENNE'">
+            </div>
+            
+            <!-- Links de Navegación -->
+            <div class="hidden lg:flex items-center gap-6 xl:gap-8">
+                <a href="#proposito" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Justificación</a>
+                <a href="#objetivos" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Objetivos</a>
+                <a href="#programa" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Programa</a>
+                <a href="#audiencia" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Target</a>
+                <a href="#avales" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Dirección</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 0. Section: Hero (Minimalista) -->
+        <header class="hero-gradient relative min-h-screen flex items-center pt-24 overflow-hidden">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.15),transparent_50%)]"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10 w-full">
+                <div class="lg:col-span-8 space-y-10 md:space-y-14 reveal flex flex-col justify-center">
+                    
+                    <h1 class="flex flex-col gap-4 md:gap-6 mt-12">
+                        <span class="text-xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-wide leading-snug max-w-4xl">
+                            State of the Art in Duchenne Muscular Dystrophy: Self-Assessment Program
+                        </span>
+                        <span class="text-6xl md:text-8xl lg:text-[7rem] font-black text-white leading-[1.05] tracking-ultra text-balance mt-4">
+                            Innovación en <br>
+							<span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary italic font-medium pr-2">Epigenética</span>
+                        </span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-3xl text-white/70 max-w-3xl font-body leading-relaxed text-balance">
+                        Del mapa molecular a la biografía del paciente. El programa formativo definitivo basado en la evidencia exclusiva de la <strong class="text-white">American Academy of Neurology (AAN)</strong>.
+                    </p>
+                    
+                    <div class="pt-8">
+                        <a href="./memoria.pdf" download target="_blank" class="bg-accent text-primary px-10 py-5 rounded-lg font-black text-sm uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-xl flex items-center gap-4 w-fit">
+                            Memoria Académica
+                            <span class="material-symbols-outlined text-xl">download</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex lg:col-span-4 justify-end items-center relative">
+                    <div class="text-right flex flex-col items-end">
+                        <span class="text-[14vw] font-black text-white/5 leading-none select-none tracking-tighter">HDAC</span>
+                        <div class="mt-[-4rem] p-10 rounded-3xl border-r-4 border-accent bg-white/10 backdrop-blur-md shadow-2xl max-w-md reveal" style="transition-delay: 0.3s;">
+                            <span class="material-symbols-outlined text-accent text-5xl mb-6 opacity-50 block">format_quote</span>
+                            <p class="text-white font-headline text-2xl leading-relaxed opacity-90 italic">
+                                "La modulación epigenética no solo repara la fibra muscular; redibuja el proyecto vital del paciente con DMD."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Bar -->
+        <section class="bg-white border-b border-outline/10 py-10 relative z-20 -mt-8 mx-6 rounded-2xl shadow-lg max-w-7xl lg:mx-auto">
+            <div class="px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-outline/10">
+                    <div class="flex flex-col items-center text-center space-y-2 reveal">
+                        <span class="material-symbols-outlined text-secondary text-3xl">workspace_premium</span>
+                        <div class="text-2xl font-black text-primary">AAN Sources</div>
+                        <div class="text-[9px] uppercase font-black tracking-widest text-outline">Excelencia Editorial</div>
+                    </div>
+                    <div class="flex flex-col items-center text-center space-y-2 reveal" style="transition-delay: 0.1s;">
+                        <span class="material-symbols-outlined text-secondary text-3xl">verified</span>
+                        <div class="text-2xl font-black text-primary">Créditos CFC</div>
+                        <div class="text-[9px] uppercase font-black tracking-widest text-outline">Acreditación SNS (Solicitada)</div>
+                    </div>
+                    <div class="flex flex-col items-center text-center space-y-2 reveal" style="transition-delay: 0.2s;">
+                        <span class="material-symbols-outlined text-secondary text-3xl">laptop_mac</span>
+                        <div class="text-2xl font-black text-primary">100% Online</div>
+                        <div class="text-[9px] uppercase font-black tracking-widest text-outline">8 Meses + Webinar</div>
+                    </div>
+                    <div class="flex flex-col items-center text-center space-y-2 reveal" style="transition-delay: 0.3s;">
+                        <span class="material-symbols-outlined text-secondary text-3xl">clinical_notes</span>
+                        <div class="text-2xl font-black text-primary">Self-Assessment</div>
+                        <div class="text-[9px] uppercase font-black tracking-widest text-outline">UX & Casos Interactivos</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. Section: Propósito -->
+        <section id="proposito" class="py-24 md:py-32 bg-surface">
+            <div class="max-w-4xl mx-auto px-6 space-y-10 text-center reveal">
+                <div class="w-16 h-1.5 bg-secondary mx-auto mb-6 rounded-full"></div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra">
+                    Más allá de la Distrofina: <br> La Era de la Modulación.
+                </h2>
+                <h3 class="text-lg md:text-xl text-secondary font-bold uppercase tracking-widest mt-4">
+                    Justificación Clínica
+                </h3>
+                <div class="text-xl md:text-2xl text-on-surface leading-loose font-body font-light text-balance text-left md:text-center mt-12 bg-white p-10 rounded-3xl border border-outline/10 shadow-sm italic text-primary/80 relative">
+                    <span class="material-symbols-outlined absolute -top-5 -left-5 text-surface-low text-6xl rotate-180 z-[-1]">format_quote</span>
+                    "La reciente aprobación y el Informe de Posicionamiento Terapéutico de nuevas terapias basadas en inhibidores de HDAC plantean un escenario clínico inédito. Es imperativo trasladar la evidencia de los ensayos pivotales a algoritmos de práctica diaria."
+                </div>
+                <p class="text-sm md:text-base text-primary font-black uppercase tracking-[0.3em] pt-6 opacity-60">Cubriendo Gaps Asistenciales en el SNS.</p>
+            </div>
+        </section>
+
+        <!-- 2. Section: Objetivos -->
+        <section id="objetivos" class="py-24 md:py-32 bg-surface-low border-t border-outline/10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16 text-center reveal">
+                    <span class="text-secondary font-black text-[11px] uppercase tracking-[0.5em] mb-4 block">Competencias Específicas</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-primary tracking-ultra">Dimensiones de Capacitación.</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Objetivo 1 -->
+                    <div class="bg-surface-lowest p-10 rounded-3xl border border-outline/10 shadow-sm reveal hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex items-center gap-4 mb-6 border-b border-outline/10 pb-6">
+                            <div class="w-12 h-12 bg-surface-low rounded-xl flex items-center justify-center">
+                                <span class="material-symbols-outlined text-secondary text-2xl">genetics</span>
+                            </div>
+                            <h4 class="text-xl font-black text-primary leading-tight">Conocimiento <br>Fisiopatológico</h4>
+                        </div>
+                        <ul class="space-y-4 text-sm text-on-surface/70 leading-relaxed">
+                            <li class="flex gap-2"><span class="text-accent">▹</span> Comprender la influencia de la regulación epigenética y el fenotipo muscular.</li>
+                            <li class="flex gap-2"><span class="text-accent">▹</span> Identificar el papel de las HDAC en inflamación y fibrosis (terapias mutación-independientes).</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Objetivo 2 -->
+                    <div class="bg-surface-lowest p-10 rounded-3xl border border-outline/10 shadow-sm reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.1s;">
+                        <div class="flex items-center gap-4 mb-6 border-b border-outline/10 pb-6">
+                            <div class="w-12 h-12 bg-surface-low rounded-xl flex items-center justify-center">
+                                <span class="material-symbols-outlined text-secondary text-2xl">monitor_heart</span>
+                            </div>
+                            <h4 class="text-xl font-black text-primary leading-tight">Manejo Clínico <br>y Terapéutico</h4>
+                        </div>
+                        <ul class="space-y-4 text-sm text-on-surface/70 leading-relaxed">
+                            <li class="flex gap-2"><span class="text-accent">▹</span> Analizar evidencia de eficacia y seguridad clínica (Estudio EPIDYS).</li>
+                            <li class="flex gap-2"><span class="text-accent">▹</span> Interpretar métricas de posicionamiento: recuento plaquetario y niveles de triglicéridos.</li>
+                            <li class="flex gap-2"><span class="text-accent">▹</span> Dominar escalas funcionales de precisión (4SC, NSAA).</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Objetivo 3 -->
+                    <div class="bg-surface-lowest p-10 rounded-3xl border border-outline/10 shadow-sm reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.2s;">
+                        <div class="flex items-center gap-4 mb-6 border-b border-outline/10 pb-6">
+                            <div class="w-12 h-12 bg-surface-low rounded-xl flex items-center justify-center">
+                                <span class="material-symbols-outlined text-secondary text-2xl">volunteer_activism</span>
+                            </div>
+                            <h4 class="text-xl font-black text-primary leading-tight">Soft Skills y <br>Comunicación</h4>
+                        </div>
+                        <ul class="space-y-4 text-sm text-on-surface/70 leading-relaxed">
+                            <li class="flex gap-2"><span class="text-accent">▹</span> Incorporar estrategias de Medicina Narrativa para diagnósticos complejos.</li>
+                            <li class="flex gap-2"><span class="text-accent">▹</span> Aplicar el modelo de Toma de Decisiones Compartida (SDM) evaluando PROs.</li>
+                            <li class="flex gap-2"><span class="text-accent">▹</span> Prevenir el Burnout y la Fatiga por Compasión en los equipos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Section: Itinerario (ACCORDION EXPANDED) -->
+        <section id="programa" class="py-24 md:py-32 bg-surface-lowest border-t border-outline/10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16 text-center reveal">
+                    <span class="text-secondary font-black text-[11px] uppercase tracking-[0.5em] mb-4 block font-headline">Diseño Instruccional UX</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-primary tracking-ultra">Estructura Académica.</h2>
+                    <p class="text-base text-on-surface/60 mt-4 max-w-2xl mx-auto">Aprendizaje progresivo. 3 Módulos compuestos por 8 apartados pedagógicos obligatorios para garantizar la asimilación.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <!-- UX Legend Column -->
+                    <div class="lg:col-span-4 sticky top-32 reveal hidden md:block">
+                        <div class="bg-primary text-white p-8 rounded-3xl space-y-6 shadow-xl">
+                            <h4 class="text-xl font-bold tracking-tight text-accent">Metodología de Evaluación</h4>
+                            <p class="text-white/70 text-sm leading-relaxed">El alumno no podrá acceder al examen final sin haber visualizado previamente el 100% de los contenidos.</p>
+                            
+                            <div class="space-y-4 bg-white/5 p-6 rounded-2xl border border-white/10">
+                                <div class="flex items-center gap-4 pb-3 border-b border-white/10">
+                                    <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center"><span class="material-symbols-outlined text-accent text-sm">assignment_turned_in</span></div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Evaluación Formativa</div>
+                                        <div class="text-[10px] text-white/50">Self-Assessments al final de cada módulo</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 pb-3 border-b border-white/10">
+                                    <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center"><span class="material-symbols-outlined text-accent text-sm">workspace_premium</span></div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Evaluación Sumativa</div>
+                                        <div class="text-[10px] text-white/50">Examen Final (30 preguntas) para Créditos CFC</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center"><span class="material-symbols-outlined text-accent text-sm">fact_check</span></div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Encuesta de Calidad</div>
+                                        <div class="text-[10px] text-white/50">Requisito para descarga de diploma</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Column -->
+                    <div class="lg:col-span-8 space-y-4 reveal">
+                        <!-- Módulo 1 -->
+                        <div class="accordion-item bg-white rounded-2xl overflow-hidden border border-outline/20 transition-all shadow-sm">
+                            <button class="w-full px-6 py-8 flex justify-between items-center text-left focus:outline-none group" onclick="toggleAccordion(this)">
+                                <div class="flex items-center gap-6">
+                                    <div class="w-12 h-12 rounded-full bg-surface-low flex items-center justify-center text-secondary font-black text-sm group-hover:bg-secondary group-hover:text-white transition-colors">M1</div>
+                                    <div>
+                                        <h4 class="text-xl font-black text-primary md:text-2xl">Epigenética y Nuevas Dianas: Más allá de la Distrofina</h4>
+                                        <span class="text-[10px] font-bold text-outline uppercase tracking-widest mt-1 block">Bases moleculares y Genómica</span>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-outline accordion-icon transition-transform text-3xl">expand_more</span>
+                            </button>
+                            <div class="accordion-content bg-surface-low border-t border-outline/10">
+                                <div class="px-6 py-8 md:pl-24">
+                                    <p class="text-on-surface/80 text-sm leading-relaxed mb-8">Profundizar en el paisaje molecular actual y la relevancia de la regulación epigenética en el músculo distrófico para predecir el comportamiento clínico ante terapias sistémicas.</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">podcasts</span> <span><strong>Executive Brief:</strong> El mapa epigenético del músculo.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">article</span> <span><strong>Scientific Core:</strong> Fisiopatología de la inflamación.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">forum</span> <span><strong>Critical Debate:</strong> Democratización del acceso.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">library_books</span> <span><strong>Further Readings:</strong> Estándares TREAT-NMD.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">rule</span> <span><strong>Practice Insights:</strong> Algoritmo de estadificación.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">medical_information</span> <span><strong>Clinical Case:</strong> Del diagnóstico genético a la terapia.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">quiz</span> <span><strong>Self-Assessment:</strong> 10 preguntas evaluativas.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">movie</span> <span><strong>Multimedia:</strong> Animación 3D (remodelación).</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 2 -->
+                        <div class="accordion-item bg-white rounded-2xl overflow-hidden border border-outline/20 transition-all shadow-sm">
+                            <button class="w-full px-6 py-8 flex justify-between items-center text-left focus:outline-none group" onclick="toggleAccordion(this)">
+                                <div class="flex items-center gap-6">
+                                    <div class="w-12 h-12 rounded-full bg-surface-low flex items-center justify-center text-secondary font-black text-sm group-hover:bg-secondary group-hover:text-white transition-colors">M2</div>
+                                    <div>
+                                        <h4 class="text-xl font-black text-primary md:text-2xl">Nuevas Estrategias en DMD: Evidencia y Práctica</h4>
+                                        <span class="text-[10px] font-bold text-outline uppercase tracking-widest mt-1 block">Seguridad Clínica</span>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-outline accordion-icon transition-transform text-3xl">expand_more</span>
+                            </button>
+                            <div class="accordion-content bg-surface-low border-t border-outline/10">
+                                <div class="px-6 py-8 md:pl-24">
+                                    <p class="text-on-surface/80 text-sm leading-relaxed mb-8">Análisis exhaustivo de la evidencia científica de las terapias emergentes y el dominio de los protocolos de seguridad clínica según el marco regulatorio del SNS.</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">podcasts</span> <span><strong>Executive Brief:</strong> Evidencia clínica actual (HDAC).</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">article</span> <span><strong>Scientific Core:</strong> Eficacia 4SC y NSAA (Neurology).</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">forum</span> <span><strong>Critical Debate:</strong> Gestión proactiva del riesgo.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">library_books</span> <span><strong>Further Readings:</strong> Consensos RM y biomarcadores.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">rule</span> <span><strong>Practice Insights:</strong> Checklist de monitorización.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">medical_information</span> <span><strong>Clinical Case:</strong> Ajuste posológico y toxicidad.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">quiz</span> <span><strong>Self-Assessment:</strong> Farmacología y algoritmos.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">movie</span> <span><strong>Multimedia:</strong> Tutorial administración oral.</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 3 -->
+                        <div class="accordion-item bg-white rounded-2xl overflow-hidden border border-outline/20 transition-all shadow-sm">
+                            <button class="w-full px-6 py-8 flex justify-between items-center text-left focus:outline-none group" onclick="toggleAccordion(this)">
+                                <div class="flex items-center gap-6">
+                                    <div class="w-12 h-12 rounded-full bg-surface-low flex items-center justify-center text-secondary font-black text-sm group-hover:bg-secondary group-hover:text-white transition-colors">M3</div>
+                                    <div>
+                                        <h4 class="text-xl font-black text-primary md:text-2xl">Manejo Integral: El Enfoque Hipocrático</h4>
+                                        <span class="text-[10px] font-bold text-outline uppercase tracking-widest mt-1 block">Humanismo y Calidad de Vida</span>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-outline accordion-icon transition-transform text-3xl">expand_more</span>
+                            </button>
+                            <div class="accordion-content bg-surface-low border-t border-outline/10">
+                                <div class="px-6 py-8 md:pl-24">
+                                    <p class="text-on-surface/80 text-sm leading-relaxed mb-8">Integrar la ventaja técnica de la innovación terapéutica con el modelo de Medicina Hipocrática, enfocándonos en la autonomía del paciente y la prevención del desgaste profesional.</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">podcasts</span> <span><strong>Executive Brief:</strong> Cronicidad y proyecto vital.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">article</span> <span><strong>Scientific Core:</strong> PROs y métricas de QoL.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">forum</span> <span><strong>Critical Debate:</strong> Transición a la vida adulta.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">library_books</span> <span><strong>Further Readings:</strong> Medicina Narrativa y SDM.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">rule</span> <span><strong>Practice Insights:</strong> Evaluación bio-psico-social.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">medical_information</span> <span><strong>Clinical Case:</strong> Acompañamiento en la progresión.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">quiz</span> <span><strong>Self-Assessment:</strong> Escalas de Burnout y equipo.</span></div>
+                                        <div class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">movie</span> <span><strong>Multimedia:</strong> Testimonios (gestión de esperanza).</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Section: Público Objetivo -->
+        <section id="audiencia" class="py-24 bg-surface border-t border-outline/10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16 text-center reveal">
+                    <span class="text-secondary font-black text-[11px] uppercase tracking-[0.5em] mb-4 block">Ecosistema Multidisciplinar</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-primary tracking-ultra">¿A quién va dirigido?</h2>
+                    <p class="text-base text-on-surface/60 mt-4 max-w-2xl mx-auto">El éxito en el manejo de la DMD depende de la coordinación entre los distintos niveles asistenciales.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Perfil 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-outline/5 shadow-sm hover:shadow-md transition-shadow reveal text-center">
+                        <div class="w-16 h-16 bg-surface-low rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="material-symbols-outlined text-secondary text-3xl">neurology</span>
+                        </div>
+                        <h4 class="text-lg font-black text-primary mb-2">Neurología y Neuropediatría</h4>
+                        <p class="text-on-surface/60 text-sm leading-relaxed">Manejo terapéutico avanzado y prescripción en Unidades de Enfermedades Neuromusculares.</p>
+                    </div>
+                    <!-- Perfil 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-outline/5 shadow-sm hover:shadow-md transition-shadow reveal text-center" style="transition-delay: 0.1s">
+                        <div class="w-16 h-16 bg-surface-low rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="material-symbols-outlined text-secondary text-3xl">biotech</span>
+                        </div>
+                        <h4 class="text-lg font-black text-primary mb-2">Genética Clínica</h4>
+                        <p class="text-on-surface/60 text-sm leading-relaxed">Interpretación de la arquitectura genética, consejo genético y fenotipado predictivo.</p>
+                    </div>
+                    <!-- Perfil 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-outline/5 shadow-sm hover:shadow-md transition-shadow reveal text-center" style="transition-delay: 0.2s">
+                        <div class="w-16 h-16 bg-surface-low rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="material-symbols-outlined text-secondary text-3xl">pediatrics</span>
+                        </div>
+                        <h4 class="text-lg font-black text-primary mb-2">Pediatría (AP)</h4>
+                        <p class="text-on-surface/60 text-sm leading-relaxed">Perfil crítico para la sospecha clínica inicial, detección precoz (niveles de CK) y derivación.</p>
+                    </div>
+                    <!-- Perfil 4 -->
+                    <div class="bg-white p-8 rounded-2xl border border-outline/5 shadow-sm hover:shadow-md transition-shadow reveal text-center" style="transition-delay: 0.3s">
+                        <div class="w-16 h-16 bg-surface-low rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="material-symbols-outlined text-secondary text-3xl">family_home</span>
+                        </div>
+                        <h4 class="text-lg font-black text-primary mb-2">Medicina de Familia</h4>
+                        <p class="text-on-surface/60 text-sm leading-relaxed">Responsables del seguimiento en la edad adulta, manejo de comorbilidades y humanización.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Section: Cuadro Docente y AVALES (LOGOS) -->
+        <section id="avales" class="py-24 bg-surface-low border-t border-outline/10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16 text-center reveal">
+                    <span class="text-secondary font-black text-[11px] uppercase tracking-[0.8em] mb-4 block">Autoridad Científica</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-primary tracking-ultra">Comité Editorial.</h2>
+                    <p class="text-sm text-primary/60 font-medium mt-4">KOLs de Referencia Nacional en Distrofias Musculares.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Nascimento -->
+                    <div class="bg-white p-8 rounded-2xl border border-outline/10 shadow-sm reveal text-center hover:border-secondary transition-colors">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-surface mb-6 flex items-center justify-center border border-outline/10">
+                             <span class="material-symbols-outlined text-outline text-3xl">person</span>
+                        </div>
+                        <span class="text-[9px] font-black text-secondary tracking-widest uppercase mb-2 block">Editor en Jefe Global & M2</span>
+                        <h4 class="text-xl font-black text-primary mb-3">Dr. Andrés Nascimento Osorio</h4>
+                        <p class="text-xs text-on-surface/60 leading-relaxed">Neuropediatra. Investigador principal ensayos clínicos DMD. Hospital Sant Joan de Déu (Barcelona).</p>
+                    </div>
+                    <!-- López de Munain -->
+                    <div class="bg-white p-8 rounded-2xl border border-outline/10 shadow-sm reveal text-center hover:border-secondary transition-colors" style="transition-delay: 0.1s;">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-surface mb-6 flex items-center justify-center border border-outline/10">
+                             <span class="material-symbols-outlined text-outline text-3xl">person</span>
+                        </div>
+                        <span class="text-[9px] font-black text-secondary tracking-widest uppercase mb-2 block">Editor Módulo 1 (Genética)</span>
+                        <h4 class="text-xl font-black text-primary mb-3">Dr. Adolfo López de Munain</h4>
+                        <p class="text-xs text-on-surface/60 leading-relaxed">Director Área Neurociencias Biodonostia. Jefe Servicio Neurología. Hospital Univ. Donostia.</p>
+                    </div>
+                    <!-- Vílchez -->
+                    <div class="bg-white p-8 rounded-2xl border border-outline/10 shadow-sm reveal text-center hover:border-secondary transition-colors" style="transition-delay: 0.2s;">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-surface mb-6 flex items-center justify-center border border-outline/10">
+                             <span class="material-symbols-outlined text-outline text-3xl">person</span>
+                        </div>
+                        <span class="text-[9px] font-black text-secondary tracking-widest uppercase mb-2 block">Editor Módulo 3 (Humanismo)</span>
+                        <h4 class="text-xl font-black text-primary mb-3">Dr. Juan Jesús Vílchez Padilla</h4>
+                        <p class="text-xs text-on-surface/60 leading-relaxed">Catedrático Neurología. Premio Nacional de Medicina Siglo XXI. Hospital La Fe (Valencia).</p>
+                    </div>
+                </div>
+                
+                <!-- Avales Logos Integrados y a todo color EXTRAMA SIZE -->
+                <div class="mt-28 flex flex-wrap justify-center items-center gap-12 md:gap-20 reveal">
+                    <div class="flex flex-col items-center gap-4">
+                        <img src="./logos/logo_aan.png" alt="AAN" class="h-20 md:h-28 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/240x100/transparent/0f172a?text=AAN'">
+                        <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Scientific Source</span>
+                    </div>
+                    <div class="h-12 w-px bg-outline/20 hidden md:block"></div>
+                    
+                    <div class="flex flex-col items-center gap-4">
+                        <img src="./logos/logo_sen.png" alt="SEN" class="h-16 md:h-24 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=SEN'">
+                        <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Aval Solicitado</span>
+                    </div>
+                    <div class="h-12 w-px bg-outline/20 hidden md:block"></div>
+                    
+                    <div class="flex flex-col items-center gap-4">
+                        <img src="./logos/logo_senep.png" alt="SENEP" class="h-16 md:h-24 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=SENEP'">
+                        <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Aval Solicitado</span>
+                    </div>
+                    <div class="h-12 w-px bg-outline/20 hidden md:block"></div>
+                    
+                    <div class="flex flex-col items-center gap-4">
+                        <img src="./logos/logo_cfc.png" alt="CFC - SNS" class="h-20 md:h-28 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=CFC+SNS'">
+                        <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Acreditación Solicitada</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Section: Final CTA (Enfoque Humanista - FULL SCREEN CON ESPACIOS AMPLIOS) -->
+        <section id="mecenazgo" class="min-h-screen flex items-center py-20 hero-gradient reveal relative overflow-hidden border-t border-white/10">
+            <div class="absolute inset-0 bg-accent/10 rounded-full filter blur-[120px] transform scale-150 -z-10 translate-x-1/2 translate-y-1/2"></div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Columna Izquierda: Mensaje Humanista (Equivalente al Hero) -->
+                <div class="flex flex-col items-start text-left space-y-16 md:space-y-20">
+                    
+                    <!-- Etiqueta minimalista -->
+                    <span class="text-accent font-black text-sm uppercase tracking-[0.5em] block tracking-widest">
+                        Compromiso Ético
+                    </span>
+                    
+                    <!-- Título (Tamaño reducido para legibilidad óptima) -->
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-ultra text-balance">
+                        La técnica cura.<br class="hidden lg:block">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary italic font-medium">El humanismo sana.</span>
+                    </h2>
+                    
+                    <!-- Bloque de texto con amplio espaciado -->
+                    <div class="space-y-10 max-w-2xl">
+                        <h3 class="text-2xl md:text-3xl font-light text-white/90 leading-snug text-balance italic border-l-4 border-accent pl-6">
+                            Transformando la innovación neuromuscular en proyectos de vida.
+                        </h3>
+                        
+                        <p class="text-lg md:text-xl text-white/70 leading-relaxed font-body">
+                            Nuestra visión formativa trasciende el conocimiento técnico y el hito científico de las nuevas terapias. Dotamos a los profesionales de la excelencia clínica y humana necesaria para acompañar de forma integral al paciente y a su familia a lo largo del desafío que supone la Distrofia Muscular.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mitad Derecha: Logo Hygieia a gran tamaño -->
+                <div class="hidden lg:flex flex-col justify-center items-center relative w-full h-full">
+                    <img src="./logos/logo_hygeia.png" alt="Hygieia Learning Hub" class="w-full max-w-md object-contain drop-shadow-2xl" onerror="this.src='https://placehold.co/400x200/transparent/2dd4bf?text=HYGIEIA+HUB'">
+                </div>
+            </div>
+        </section>     
+    </main>
+
+    <!-- Footer Limpio con Logo Hygieia a Todo Color -->
+    <footer class="py-16 bg-primary text-white border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+            
+            <!-- Branding con Logo en color y a gran tamaño (Sin Filtro Blanco) -->
+            <div class="flex flex-col items-center md:items-start gap-6 text-center md:text-left">
+                <img src="./logos/logo_hygeia.png" alt="Hygieia Learning Hub" class="h-16 md:h-24 w-auto object-contain drop-shadow-lg transition-transform hover:scale-105" onerror="this.src='https://placehold.co/240x80/transparent/0f172a?text=HYGIEIA+HUB'">
+                <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-white/40">
+                    © 2026 Madrid — Barcelona
+                </p>
+            </div>
+            
+            <div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-white/50">
+                <a href="#" class="hover:text-accent transition-colors">Aviso Legal</a>
+                <a href="#" class="hover:text-accent transition-colors">Política de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Reveal Intersection Observer
+        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('active'); }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Accordion Logic (Optimized)
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const isActive = item.classList.contains('active');
+
+            // Close all others
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Toggle current
+            if (!isActive) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        }
+    </script>
+    
+    <!-- Módulo n8n Chat AI -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://n8n.asklepiosdat.com/webhook/09fc2681-c82a-48f5-bb1c-502e8917e23c/chat',
+            mode: 'window', // <-- CLAVE: Fuerza la burbuja flotante
+            initialMessages: [
+                '¡Hola! Soy el Asesor del curso Stata of the Art in Duchenne Muscular Dystrophy.',
+                '¿Puedo ayudarte a explorar el programa?'
+            ],
+            i18n: {
+                en: {
+                    title: 'Hygieia Learning Hub', 
+                    subtitle: 'Asesoría Académica Institucional', 
+                    getStarted: 'Nueva conversación', 
+                    chatInput: { 
+                        placeholder: 'Escribe tu consulta aquí...' 
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
