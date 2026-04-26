@@ -111,6 +111,7 @@
             <!-- Links de Navegación -->
             <div class="hidden lg:flex items-center gap-6 xl:gap-8">
                 <a href="#proposito" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Justificación</a>
+                <a href="#metodologia" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Metodología</a>
                 <a href="#objetivos" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Objetivos</a>
                 <a href="#programa" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Programa</a>
                 <a href="#audiencia" class="text-[11px] font-bold text-primary hover:text-secondary transition-colors uppercase tracking-widest">Target</a>
@@ -133,7 +134,7 @@
                         </span>
                         <span class="text-6xl md:text-8xl lg:text-[7rem] font-black text-white leading-[1.05] tracking-ultra text-balance mt-4">
                             Innovación en <br>
-							<span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary italic font-medium pr-2">Epigenética</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary italic font-medium pr-2">Epigenética</span>
                         </span>
                     </h1>
                     
@@ -192,10 +193,10 @@
         </section>
 
         <!-- 1. Section: Propósito -->
-        <section id="proposito" class="py-24 md:py-32 bg-surface">
-            <div class="max-w-4xl mx-auto px-6 space-y-10 text-center reveal">
+        <section id="proposito" class="min-h-screen flex items-center py-24 md:py-32 bg-surface">
+            <div class="w-full max-w-4xl mx-auto px-6 space-y-10 text-center reveal">
                 <div class="w-16 h-1.5 bg-secondary mx-auto mb-6 rounded-full"></div>
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra text-balance">
                     Más allá de la Distrofina: <br> La Era de la Modulación.
                 </h2>
                 <h3 class="text-lg md:text-xl text-secondary font-bold uppercase tracking-widest mt-4">
@@ -209,12 +210,68 @@
             </div>
         </section>
 
+        <!-- 1.5. Section: Metodología UX y Certificación -->
+        <section id="metodologia" class="min-h-screen flex items-center py-24 md:py-32 bg-surface-lowest border-y border-outline/10">
+            <div class="w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                <div class="space-y-12 reveal">
+                    <div>
+                        <span class="text-secondary font-black text-[11px] uppercase tracking-[0.6em] mb-4 block">Eficacia Formativa</span>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra text-balance">
+                            Metodología UX y Certificación Oficial.
+                        </h2>
+                    </div>
+                    <p class="text-xl text-on-surface/60 font-body leading-relaxed">
+                        Un entorno virtual de aprendizaje diseñado para garantizar la adquisición de competencias clínicas reales, integrando el prestigio de la AAN con la acreditación del SNS.
+                    </p>
+                    
+                    <ul class="space-y-10 pt-6">
+                        <li class="flex gap-8 group">
+                            <div class="bg-surface-low p-5 h-fit rounded-xl group-hover:bg-secondary group-hover:text-white transition-all shadow-sm">
+                                <span class="material-symbols-outlined text-3xl">school</span>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-primary mb-3">Evaluación Formativa Continua</h4>
+                                <p class="text-base text-on-surface/50 leading-relaxed italic">Cuestionarios interactivos (Self-Assessments) con feedback razonado al instante basado en la evidencia de la AAN.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-8 group">
+                            <div class="bg-surface-low p-5 h-fit rounded-xl group-hover:bg-secondary group-hover:text-white transition-all shadow-sm">
+                                <span class="material-symbols-outlined text-3xl">auto_stories</span>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-primary mb-3">Contenidos de Clase Mundial</h4>
+                                <p class="text-base text-on-surface/50 leading-relaxed italic">Curaduría científica extraída directamente de los Journals de la American Academy of Neurology (AAN).</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-8 group">
+                            <div class="bg-surface-low p-5 h-fit rounded-xl group-hover:bg-secondary group-hover:text-white transition-all shadow-sm">
+                                <span class="material-symbols-outlined text-3xl">verified</span>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-primary mb-3">Acreditación SNS</h4>
+                                <p class="text-base text-on-surface/50 leading-relaxed italic">Certificado oficial con créditos de Formación Continuada (CFC) para la carrera profesional sanitaria.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center reveal" style="transition-delay: 0.2s;">
+                    <div class="flex flex-col items-center text-center w-full max-w-lg">
+                        <img src="./logos/logo_aan.png" alt="AAN Scientific Content" class="w-full h-auto drop-shadow-md transition-all duration-700" onerror="this.src='https://placehold.co/600x200/transparent/0d9488?text=LOGO+AAN'">
+                        <span class="text-xs md:text-sm font-black text-outline/50 uppercase tracking-[0.3em] mt-12 italic">Respaldo Científico Exclusivo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 2. Section: Objetivos -->
-        <section id="objetivos" class="py-24 md:py-32 bg-surface-low border-t border-outline/10">
-            <div class="max-w-7xl mx-auto px-6">
+        <section id="objetivos" class="min-h-screen flex items-center py-24 md:py-32 bg-surface-low border-t border-outline/10">
+            <div class="w-full max-w-7xl mx-auto px-6">
                 <div class="mb-16 text-center reveal">
                     <span class="text-secondary font-black text-[11px] uppercase tracking-[0.5em] mb-4 block">Competencias Específicas</span>
-                    <h2 class="text-3xl md:text-5xl font-black text-primary tracking-ultra">Dimensiones de Capacitación.</h2>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra text-balance">
+                        Dimensiones de Capacitación.
+                    </h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -266,11 +323,13 @@
         </section>
 
         <!-- 3. Section: Itinerario (ACCORDION EXPANDED) -->
-        <section id="programa" class="py-24 md:py-32 bg-surface-lowest border-t border-outline/10">
-            <div class="max-w-7xl mx-auto px-6">
+        <section id="programa" class="min-h-screen flex items-center py-24 md:py-32 bg-surface-lowest border-t border-outline/10">
+            <div class="w-full max-w-7xl mx-auto px-6">
                 <div class="mb-16 text-center reveal">
                     <span class="text-secondary font-black text-[11px] uppercase tracking-[0.5em] mb-4 block font-headline">Diseño Instruccional UX</span>
-                    <h2 class="text-3xl md:text-5xl font-black text-primary tracking-ultra">Estructura Académica.</h2>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra text-balance">
+                        Estructura Académica.
+                    </h2>
                     <p class="text-base text-on-surface/60 mt-4 max-w-2xl mx-auto">Aprendizaje progresivo. 3 Módulos compuestos por 8 apartados pedagógicos obligatorios para garantizar la asimilación.</p>
                 </div>
                 
@@ -405,11 +464,13 @@
         </section>
 
         <!-- 4. Section: Público Objetivo -->
-        <section id="audiencia" class="py-24 bg-surface border-t border-outline/10">
-            <div class="max-w-7xl mx-auto px-6">
+        <section id="audiencia" class="min-h-screen flex items-center py-24 bg-surface border-t border-outline/10">
+            <div class="w-full max-w-7xl mx-auto px-6">
                 <div class="mb-16 text-center reveal">
                     <span class="text-secondary font-black text-[11px] uppercase tracking-[0.5em] mb-4 block">Ecosistema Multidisciplinar</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-primary tracking-ultra">¿A quién va dirigido?</h2>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra text-balance">
+                        ¿A quién va dirigido?
+                    </h2>
                     <p class="text-base text-on-surface/60 mt-4 max-w-2xl mx-auto">El éxito en el manejo de la DMD depende de la coordinación entre los distintos niveles asistenciales.</p>
                 </div>
 
@@ -451,11 +512,13 @@
         </section>
 
         <!-- 5. Section: Cuadro Docente y AVALES (LOGOS) -->
-        <section id="avales" class="py-24 bg-surface-low border-t border-outline/10">
-            <div class="max-w-7xl mx-auto px-6">
+        <section id="avales" class="min-h-screen flex items-center py-24 bg-surface-low border-t border-outline/10">
+            <div class="w-full max-w-7xl mx-auto px-6">
                 <div class="mb-16 text-center reveal">
                     <span class="text-secondary font-black text-[11px] uppercase tracking-[0.8em] mb-4 block">Autoridad Científica</span>
-                    <h2 class="text-3xl md:text-5xl font-black text-primary tracking-ultra">Comité Editorial.</h2>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra text-balance">
+                        Comité Editorial.
+                    </h2>
                     <p class="text-sm text-primary/60 font-medium mt-4">KOLs de Referencia Nacional en Distrofias Musculares.</p>
                 </div>
                 
@@ -492,12 +555,6 @@
                 <!-- Avales Logos Integrados y a todo color EXTRAMA SIZE -->
                 <div class="mt-28 flex flex-wrap justify-center items-center gap-12 md:gap-20 reveal">
                     <div class="flex flex-col items-center gap-4">
-                        <img src="./logos/logo_aan.png" alt="AAN" class="h-20 md:h-28 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/240x100/transparent/0f172a?text=AAN'">
-                        <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Scientific Source</span>
-                    </div>
-                    <div class="h-12 w-px bg-outline/20 hidden md:block"></div>
-                    
-                    <div class="flex flex-col items-center gap-4">
                         <img src="./logos/logo_sen.png" alt="SEN" class="h-16 md:h-24 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=SEN'">
                         <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Aval Solicitado</span>
                     </div>
@@ -528,13 +585,13 @@
                     
                     <!-- Etiqueta minimalista -->
                     <span class="text-accent font-black text-sm uppercase tracking-[0.5em] block tracking-widest">
-                        Compromiso Ético
+                        Compromiso Hygeia
                     </span>
                     
-                    <!-- Título (Tamaño reducido para legibilidad óptima) -->
+                    <!-- Título (Tamaño más pequeño, en 2 líneas) -->
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-ultra text-balance">
-                        La técnica cura.<br class="hidden lg:block">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary italic font-medium">El humanismo sana.</span>
+                        Un enfoque holístico<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary italic font-medium pr-2">del paciente.</span>
                     </h2>
                     
                     <!-- Bloque de texto con amplio espaciado -->
@@ -551,17 +608,17 @@
 
                 <!-- Mitad Derecha: Logo Hygieia a gran tamaño -->
                 <div class="hidden lg:flex flex-col justify-center items-center relative w-full h-full">
-                    <img src="./logos/logo_hygeia.png" alt="Hygieia Learning Hub" class="w-full max-w-md object-contain drop-shadow-2xl" onerror="this.src='https://placehold.co/400x200/transparent/2dd4bf?text=HYGIEIA+HUB'">
+                    <img src="./logos/logo_hygeia.png" alt="Hygieia Learning Hub" class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/400x200/transparent/2dd4bf?text=HYGIEIA+HUB'">
                 </div>
             </div>
         </section>     
     </main>
 
     <!-- Footer Limpio con Logo Hygieia a Todo Color -->
-    <footer class="py-16 bg-primary text-white border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+    <footer class="py-10 bg-primary text-white border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             
-            <!-- Branding con Logo en color y a gran tamaño (Sin Filtro Blanco) -->
+            <!-- Branding con Logo en color y a gran tamaño -->
             <div class="flex flex-col items-center md:items-start gap-6 text-center md:text-left">
                 <img src="./logos/logo_hygeia.png" alt="Hygieia Learning Hub" class="h-16 md:h-24 w-auto object-contain drop-shadow-lg transition-transform hover:scale-105" onerror="this.src='https://placehold.co/240x80/transparent/0f172a?text=HYGIEIA+HUB'">
                 <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-white/40">
@@ -569,12 +626,108 @@
                 </p>
             </div>
             
-            <div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-white/50">
-                <a href="#" class="hover:text-accent transition-colors">Aviso Legal</a>
-                <a href="#" class="hover:text-accent transition-colors">Política de Privacidad</a>
+            <!-- Contacto -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left gap-1">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-white/50">Contacto:</span>
+                <a href="mailto:dfernandez@hygeia.network" class="text-accent hover:text-white transition-colors text-sm font-medium">dfernandez@hygeia.network</a>
+            </div>
+            
+            <!-- Enlaces a Modales -->
+            <div class="flex flex-col sm:flex-row gap-6 text-[12px] font-bold uppercase tracking-widest text-white/50 text-center">
+                <button onclick="openModal('modal-aviso')" class="hover:text-accent transition-colors focus:outline-none">Aviso Legal</button>
+                <button onclick="openModal('modal-privacidad')" class="hover:text-accent transition-colors focus:outline-none">Política de Privacidad</button>
             </div>
         </div>
     </footer>
+
+    <!-- Modales -->
+    <div id="modal-aviso" class="modal fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-primary/90 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-aviso')"></div>
+        <div class="bg-surface relative z-10 w-full max-w-3xl max-h-[85vh] rounded-2xl shadow-2xl flex flex-col mx-4 overflow-hidden border border-outline/20">
+            <div class="flex justify-between items-center p-6 border-b border-outline/10 bg-white">
+                <h2 class="text-xl font-bold text-primary font-headline">Aviso Legal</h2>
+                <button onclick="closeModal('modal-aviso')" class="text-outline hover:text-secondary transition-colors focus:outline-none">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-8 overflow-y-auto font-body text-sm text-on-surface/80 space-y-6">
+                <div class="prose prose-sm max-w-none prose-headings:text-primary prose-a:text-secondary">
+                    <p class="font-bold text-primary">Información General</p>
+                    <p>En cumplimiento de lo dispuesto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), se informa de que el presente sitio web tiene carácter corporativo, institucional y estrictamente informativo.</p>
+                    
+                    <p class="font-bold text-primary mt-6">Titular del Sitio</p>
+                    <p>HYGEIA LEARNING HUB, SL</p>
+                    <p>NIF/CIF: B26580704</p>
+                    <p>Domicilio social: C\ Capitan Arenas 22 1-3 08034 Barcelona</p>
+                    <p>Correo electrónico de contacto: info@hygeia.network</p>
+
+                    <p>El acceso, la navegación y el uso del sitio web atribuyen la condición de usuario e implican la aceptación plena del presente Aviso legal.</p>
+
+                    <p class="font-bold text-primary mt-6">Finalidad del sitio</p>
+                    <p>Este sitio web tiene como finalidad ofrecer información sobre la actividad de HG en el marco del desarrollo, impulso y comunicación de proyectos formativos de alto nivel, concebidos en colaboración con fundaciones, instituciones y otras entidades que aportan valor docente, académico e institucional, con una finalidad estrictamente informativa y no vinculante.</p>
+
+                    <p class="font-bold text-primary mt-6">Uso de los contenidos</p>
+                    <p>El usuario se compromete a realizar un uso adecuado, responsable y respetuoso de los contenidos del sitio web, de conformidad con la legislación vigente, la buena fe y los principios generales de convivencia digital.</p>
+                    
+                    <p class="font-bold text-primary mt-6">Propiedad intelectual y créditos de imagen</p>
+                    <p>Todos los contenidos del sitio web —incluidos textos, documentos, imágenes, elementos gráficos, diseño y estructura— son titularidad de HG o se utilizan bajo las correspondientes licencias.</p>
+                    
+                    <p>HG vela activamente por el respeto de los derechos de autoría y licencia. Algunas imágenes pueden estar sujetas a licencias Creative Commons u otras similares y se encuentran debidamente acreditadas en la página de Atribuciones, accesible desde el pie de página del sitio web.</p>
+
+                    <p class="font-bold text-primary mt-6">Responsabilidad</p>
+                    <p>HG no se hace responsable de los daños y perjuicios derivados del uso de la información contenida en este sitio web, ni de posibles errores, omisiones o contenidos desactualizados.</p>
+
+                    <p class="font-bold text-primary mt-6">Legislación aplicable</p>
+                    <p>El presente Aviso legal se rige por la legislación española vigente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-privacidad" class="modal fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-primary/90 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-privacidad')"></div>
+        <div class="bg-surface relative z-10 w-full max-w-3xl max-h-[85vh] rounded-2xl shadow-2xl flex flex-col mx-4 overflow-hidden border border-outline/20">
+            <div class="flex justify-between items-center p-6 border-b border-outline/10 bg-white">
+                <h2 class="text-xl font-bold text-primary font-headline">Política de Privacidad Institucional</h2>
+                <button onclick="closeModal('modal-privacidad')" class="text-outline hover:text-secondary transition-colors focus:outline-none">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-8 overflow-y-auto font-body text-sm text-on-surface/80 space-y-6">
+                <div class="prose prose-sm max-w-none prose-headings:text-primary prose-a:text-secondary">
+                    <p class="font-bold text-primary">Información General</p>
+                    <p>HLH vela por la protección de la privacidad y por el tratamiento responsable de los datos personales, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la normativa vigente en materia de protección de datos.</p>
+
+                    <p class="font-bold text-primary mt-6">Titular del Sitio</p>
+                    <p>HYGEIA LEARNING HUB, SL</p>
+                    <p>NIF/CIF: B26580704</p>
+                    <p>Domicilio social: C\ Capitan Arenas 22 1-3 08034 Barcelona</p>
+                    <p>Correo electrónico de contacto: info@hygeia.network</p>
+
+                    <p class="font-bold text-primary mt-6">Datos personales</p>
+                    <p>Este sitio web puede recoger datos personales exclusivamente a través de formularios de contacto o mediante comunicaciones electrónicas iniciadas voluntariamente por el usuario. Los datos recogidos son los estrictamente necesarios para atender consultas de carácter institucional o profesional.</p>
+
+                    <p class="font-bold text-primary mt-6">Finalidad del tratamiento</p>
+                    <p>Los datos personales se tratan únicamente para atender comunicaciones, facilitar información relacionada con las actividades y proyectos impulsados por HG y garantizar una relación institucional adecuada. En ningún caso se utilizarán con fines comerciales o publicitarios.</p>
+                    
+                    <p class="font-bold text-primary mt-6">Base legal</p>
+                    <p>La base legal del tratamiento es el consentimiento del usuario y, en su caso, el cumplimiento de obligaciones legales.</p>
+                    
+                    <p class="font-bold text-primary mt-6">Conservación de los datos</p>
+                    <p>Los datos personales se conservarán durante el tiempo estrictamente necesario para cumplir la finalidad para la que fueron recabados.</p>
+
+                    <p class="font-bold text-primary mt-6">Destinatarios</p>
+                    <p>Los datos no serán cedidos a terceros, salvo obligación legal.</p>
+                    
+                    <p class="font-bold text-primary mt-6">Derechos del Usuario</p>
+                    <p>El usuario puede ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad mediante comunicación escrita dirigida al responsable del tratamiento.</p>
+
+                    <p class="font-bold text-primary mt-6">Medidas de seguridad</p>
+                    <p>HG aplica las medidas técnicas y organizativas adecuadas para garantizar la seguridad, integridad y confidencialidad de los datos personales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Smooth Reveal Intersection Observer
@@ -606,6 +759,19 @@
                 item.classList.remove('active');
             }
         }
+
+        // Modal Logic
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+        }
+        
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
     </script>
     
     <!-- Módulo n8n Chat AI -->
@@ -616,8 +782,8 @@
             webhookUrl: 'https://n8n.asklepiosdat.com/webhook/09fc2681-c82a-48f5-bb1c-502e8917e23c/chat',
             mode: 'window', // <-- CLAVE: Fuerza la burbuja flotante
             initialMessages: [
-                '¡Hola! Soy el Asesor del curso Stata of the Art in Duchenne Muscular Dystrophy.',
-                '¿Puedo ayudarte a explorar el programa?'
+                '¡Hola! Soy el Asesor Académico de Hygieia Learning Hub.',
+                '¿Puedo ayudarte a explorar el programa o nuestras opciones de mecenazgo para hospitales?'
             ],
             i18n: {
                 en: {
