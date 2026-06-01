@@ -79,19 +79,39 @@
         .text-balance { text-wrap: balance; }
         ::selection { background-color: #2dd4bf; color: #0f172a; }
 
-        /* MAQUILLAJE CORPORATIVO PARA EL CHAT DE n8n */
+        /* MAQUILLAJE CORPORATIVO PARA EL CHAT DE n8n BLINDADO */
         :root {
-            --chat--color--primary: #001e40; /* Navy Authority */
-            --chat--color--primary-shade-50: #003366; 
-            --chat--color--primary--shade-100: #004080; 
-            --chat--color--secondary: #00668a; /* Action Blue */
-            --chat--color-secondary-shade-50: #0081ae; 
-            --chat--color-white: #ffffff;
-            --chat--color-light: #f7f9fb; 
-            --chat--color-dark: #191c1e; 
-            --chat--toggle--background: #001e40; /* Fondo de la burbuja */
-            --chat--toggle--color: #ffffff; /* Icono de la burbuja */
+            --chat--color--primary: #001e40 !important; /* Navy Authority */
+            --chat--color--primary-shade-50: #003366 !important; 
+            --chat--color--primary--shade-100: #004080 !important; 
+            --chat--color--secondary: #00668a !important; /* Action Blue */
+            --chat--color-secondary-shade-50: #0081ae !important; 
+            --chat--color-white: #ffffff !important;
+            --chat--color-light: #f7f9fb !important; 
+            --chat--color-dark: #191c1e !important; 
+            --chat--toggle--background: #00668a !important; /* Fondo de la burbuja */
+            --chat--toggle--color: #ffffff !important; /* Icono de la burbuja */
         }
+
+        /* Bloqueo absoluto contra la hoja de estilos externa del chat para la burbuja */
+        #n8n-chat .chat-wrapper > button,
+        [class*="chat-toggle"] {
+            background-color: #00668a !important;
+            border-color: #00668a !important;
+            color: #ffffff !important;
+            transition: all 0.3s ease !important;
+        }
+
+        /* Forzamos en el hover */
+        #n8n-chat .chat-wrapper > button:hover,
+        [class*="chat-toggle"]:hover,
+        #n8n-chat .chat-wrapper > button:active,
+        [class*="chat-toggle"]:active {
+            background-color: #0081ae !important;
+            border-color: #0081ae !important;
+            transform: scale(1.05) !important;
+        }
+
         .chat-window {
             box-shadow: 0 10px 25px rgba(0, 30, 64, 0.15) !important;
             font-family: 'Inter', sans-serif;
@@ -517,7 +537,7 @@
                 <div class="mb-16 text-center reveal">
                     <span class="text-secondary font-black text-[11px] uppercase tracking-[0.8em] mb-4 block">Autoridad Científica</span>
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-ultra text-balance">
-                        Comité Editorial.
+                        Dirección Académica Propuesta.
                     </h2>
                     <p class="text-sm text-primary/60 font-medium mt-4">KOLs de Referencia Nacional en Distrofias Musculares.</p>
                 </div>
@@ -553,22 +573,22 @@
                 </div>
                 
                 <!-- Avales Logos Integrados y a todo color EXTRAMA SIZE -->
-                <div class="mt-28 flex flex-wrap justify-center items-center gap-12 md:gap-20 reveal">
-                    <div class="flex flex-col items-center gap-4">
-                        <img src="./logos/logo_sen.png" alt="SEN" class="h-24 md:h-32 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=SEN'">
-                        <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Aval Solicitado</span>
+                <div class="mt-24 pt-12 border-t border-outline/10 flex flex-col items-center gap-16 reveal w-full overflow-hidden">
+                    <!-- Fila 1: Sociedades -->
+                    <div class="flex flex-col items-center w-full">
+                        <span class="text-xs font-black uppercase tracking-[0.2em] text-primary/50 mb-8 block text-center">Se solicitará aval médico a:</span>
+                        <div class="flex flex-wrap justify-center items-center gap-16 md:gap-24 w-full">
+                            <img src="./logos/logo_sen.png" alt="SEN" class="h-24 md:h-32 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=SEN'">
+                            <img src="./logos/logo_senep.png" alt="SENEP" class="h-24 md:h-32 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=SENEP'">
+                        </div>
                     </div>
-                    <div class="h-12 w-px bg-outline/20 hidden md:block"></div>
-                    
-                    <div class="flex flex-col items-center gap-4">
-                        <img src="./logos/logo_senep.png" alt="SENEP" class="h-24 md:h-32 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=SENEP'">
-                        <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Aval Solicitado</span>
-                    </div>
-                    <div class="h-12 w-px bg-outline/20 hidden md:block"></div>
-                    
-                    <div class="flex flex-col items-center gap-4">
-                        <img src="./logos/logo_cfc.PNG" alt="CFC - SNS" class="h-24 md:h-32 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=CFC+SNS'">
-                        <span class="text-[10px] text-outline font-bold uppercase tracking-widest">Acreditación Solicitada</span>
+
+                    <!-- Fila 2: CFC centrado solo -->
+                    <div class="flex flex-col items-center w-full mt-4">
+                        <span class="text-xs font-black uppercase tracking-[0.2em] text-primary/50 mb-8 block text-center">Pendiente solicitud de créditos:</span>
+                        <div class="flex justify-center items-center">
+                            <img src="./logos/logo_cfc.PNG" alt="CFC - SNS" class="h-24 md:h-32 w-auto transition-transform hover:scale-105" onerror="this.src='https://placehold.co/220x100/transparent/0f172a?text=CFC+SNS'">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -696,10 +716,10 @@
             <div class="p-8 overflow-y-auto font-body text-sm text-on-surface/80 space-y-6">
                 <div class="prose prose-sm max-w-none prose-headings:text-primary prose-a:text-secondary">
                     <p class="font-bold text-primary">Información General</p>
-                    <p>HLH vela por la protección de la privacidad y por el tratamiento responsable de los datos personales, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la normativa vigente en materia de protección de datos.</p>
+                    <p>Hygieia Learning Hub vela por la protección de la privacidad y por el tratamiento responsable de los datos personales, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la normativa vigente en materia de protección de datos.</p>
 
                     <p class="font-bold text-primary mt-6">Titular del Sitio</p>
-                    <p>HYGEIA LEARNING HUB, SL</p>
+                    <p>HYGIEIA LEARNING HUB, SL</p>
                     <p>NIF/CIF: B26580704</p>
                     <p>Domicilio social: C\ Capitan Arenas 22 1-3 08034 Barcelona</p>
                     <p>Correo electrónico de contacto: info@hygeia.network</p>
@@ -708,7 +728,7 @@
                     <p>Este sitio web puede recoger datos personales exclusivamente a través de formularios de contacto o mediante comunicaciones electrónicas iniciadas voluntariamente por el usuario. Los datos recogidos son los estrictamente necesarios para atender consultas de carácter institucional o profesional.</p>
 
                     <p class="font-bold text-primary mt-6">Finalidad del tratamiento</p>
-                    <p>Los datos personales se tratan únicamente para atender comunicaciones, facilitar información relacionada con las actividades y proyectos impulsados por HG y garantizar una relación institucional adecuada. En ningún caso se utilizarán con fines comerciales o publicitarios.</p>
+                    <p>Los datos personales se tratan únicamente para atender comunicaciones, facilitar información relacionada con las actividades y proyectos impulsados por Hygieia Learning Hub y garantizar una relación institucional adecuada. En ningún caso se utilizarán con fines comerciales o publicitarios.</p>
                     
                     <p class="font-bold text-primary mt-6">Base legal</p>
                     <p>La base legal del tratamiento es el consentimiento del usuario y, en su caso, el cumplimiento de obligaciones legales.</p>
@@ -723,58 +743,88 @@
                     <p>El usuario puede ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad mediante comunicación escrita dirigida al responsable del tratamiento.</p>
 
                     <p class="font-bold text-primary mt-6">Medidas de seguridad</p>
-                    <p>HG aplica las medidas técnicas y organizativas adecuadas para garantizar la seguridad, integridad y confidencialidad de los datos personales.</p>
+                    <p>Hygieia Learning Hub aplica las medidas técnicas y organizativas adecuadas para garantizar la seguridad, integridad y confidencialidad de los datos personales.</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Scripts funcionales -->
     <script>
         // Smooth Reveal Intersection Observer
-        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('active'); }
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
             });
         }, observerOptions);
+
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // Accordion Logic (Optimized)
+        // Accordion Logic
         function toggleAccordion(button) {
             const item = button.parentElement;
             const content = item.querySelector('.accordion-content');
             const isActive = item.classList.contains('active');
 
-            // Close all others
+            // Close all other accordions
             document.querySelectorAll('.accordion-item').forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.accordion-content').style.maxHeight = null;
             });
 
             // Toggle current
             if (!isActive) {
                 item.classList.add('active');
-            } else {
-                item.classList.remove('active');
+                content.style.maxHeight = content.scrollHeight + "px";
             }
         }
+
+        // Header Scroll Toggle
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('glass-nav');
+                nav.classList.remove('bg-transparent');
+            } else {
+                // nav.classList.remove('glass-nav');
+            }
+        });
 
         // Modal Logic
         function openModal(id) {
             const modal = document.getElementById(id);
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.classList.add('opacity-100', 'pointer-events-auto');
+            if(modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'hidden'; // Previene el scroll del fondo
+            }
         }
-        
+
         function closeModal(id) {
             const modal = document.getElementById(id);
-            modal.classList.remove('opacity-100', 'pointer-events-auto');
-            modal.classList.add('opacity-0', 'pointer-events-none');
+            if(modal) {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'auto'; // Restaura el scroll
+            }
         }
+        
+        // Cerrar modal al pulsar Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.querySelectorAll('.modal:not(.opacity-0)').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
     </script>
     
-    <!-- Módulo n8n Chat AI -->
+    <!-- Módulo n8n Chat AI BLINDADO -->
     <script type="module">
         import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
